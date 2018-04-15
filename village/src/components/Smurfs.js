@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
@@ -18,13 +18,14 @@ class Smurfs extends Component {
                   height={smurf.height}
                   key={smurf.id}
                 />
-                <form onSubmit={() => this.props.cb(smurf.id, index)}>
+                <form onSubmit={() => this.props.delete(smurf.id, index)}>
                   <button type="submit">Remove smurf from village</button>
                 </form>
               </div>
             );
           })}
         </ul>
+        <Link to={'/add'}> <button>Add Smurf</button> </Link>
       </div>
     );
   }
